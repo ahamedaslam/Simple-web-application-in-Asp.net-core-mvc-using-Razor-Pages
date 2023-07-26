@@ -1,0 +1,70 @@
+﻿@page
+@model MyStore.Pages.Clients.CreateModel
+
+<br>
+<h2>New Client</h2>
+
+@if (Model.errorMessage.Length > 0)
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>@Model.errorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+    </div>
+}
+
+<form method="post" class="row g-3">
+    <div class="col-md-6">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" name="name" value="@Model.Clientinfo.name" />
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Email</label>
+        <input type="text" class="form-control" name="email" value="@Model.Clientinfo.email" />
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Phone</label>
+        <input type="text" class="form-control" name="phone" value="@Model.Clientinfo.phone" />
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Address</label>
+        <input type="text" class="form-control" name="address" value="@Model.Clientinfo.address" />
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">Client_Type</label>
+        <select class="form-control" name="client_type" id="clientTypeSelect">
+            <option value="Indian">Indian</option>
+            <option value="International">International</option>
+        </select>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            var clientType = '@Model.Clientinfo.client_Type';
+            $("#clientTypeSelect").val(clientType);
+        });
+    </script>
+
+
+
+
+    @if (Model.successMessage.Length > 0)
+    {
+        <div class="col-md-9">
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>@Model.successMessage</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+            </div>
+        </div>
+    }
+
+    <div class="col-md-3 d-grid">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+
+    <div class="col-md-3 d-grid">
+        <a class="btn btn-outline-primary" href="/" role="button">Cancel</a>
+    </div>
+</form>

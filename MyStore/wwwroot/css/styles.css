@@ -1,0 +1,8 @@
+﻿/* styles.css */
+body {
+    font-family:Arial;
+}
+
+.form-label, .form-control, .btn {
+    font-family:'Baskerville Old Face';
+}
